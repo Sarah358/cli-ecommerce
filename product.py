@@ -2,6 +2,9 @@
 
 # product menu
 
+from operator import add
+
+
 def display_product_menu():
 
     # creating options  
@@ -28,22 +31,57 @@ def display_product_menu():
         # choice 1
         if choice3 == 1:
             print()
-            pass
+            list_products()
         elif choice3 == 2:
             print()
-            pass
+            add_product()
         elif choice3 == 3:
             print()
-            pass
+            edit_product()
         elif choice3 == 4:
             print()
-            pass
+            delete_product()
         elif choice3 == 5:
             print()
-            pass
+            search_product()
         elif choice3 == 6:
             print()
             break
         else:
             print()
             print('Oops! Incorrect choice. Please try again! ')
+
+
+# required functions
+# func to list all products
+def list_products():
+    pass
+
+# function to add a product
+def add_product():
+    #open the file in append mode (add to file, we don't wish to overwrite
+    with open('product.txt','a',newline="") as fo:
+        
+        product_id = input("Enter Product id : ")
+        product_name = input("Enter Product name:  ")
+        amount = input("Enter product amount  :   ")
+        product_price = input("Enter the product price:  ")
+        fo.write("")
+        fo.write(str(product_id)  + ','  +  product_name  +  ', '  +  amount + ', ' + product_price + '\n')
+        fo.close()
+
+        if (fo):
+            print("Product added succefully!!!")
+        print()
+
+# function to edit product with product id
+def edit_product():
+    pass
+
+# function to delete a product with product id
+def delete_product():
+    pass
+
+# function to search for product with id and name
+def search_product():
+    pass

@@ -12,7 +12,7 @@ def display_purchase_menu():
 
         1. Make a purchase
 
-        2. Show all purchases
+        2. List all purchases
 
         3. Search for a purchase
 
@@ -24,16 +24,34 @@ def display_purchase_menu():
         # choice 1
         if choice4 == 1:
             print()
-            pass
+            make_purchase()
         elif choice4 == 2:
             print()
-            pass
+            list_purchases()
         elif choice4 == 3:
             print()
-            pass
+            search_purchase()
         elif choice4 == 4:
             print()
             break
         else:
             print()
             print('Oops! Incorrect choice. Please try again! ')
+
+
+# required functions
+
+# function to make purchase 
+def make_purchase():
+    pass
+
+
+# function to list all purchases
+def list_purchases():
+    pass
+
+
+
+# function to search for a purchase with customer id or product id
+def search_purchase():
+    pass
