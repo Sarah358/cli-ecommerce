@@ -1,6 +1,5 @@
 # main file 
 import product,customer,purchase
-
 # main function
 def main():
 

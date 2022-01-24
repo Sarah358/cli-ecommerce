@@ -1,6 +1,5 @@
-1,sarah,juja
-2,john,kisumu
-3,jane,nairobi
-4,beth,mombasa
-
-6,test,test
+1, sarah, juja
+2, njeri, juja
+3,TEST,TEST
+4,test2,test2
+5,test3 ,teste2

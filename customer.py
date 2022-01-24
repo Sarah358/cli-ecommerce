@@ -46,6 +46,9 @@ def display_customer_menu():
         if choice2 == 1:
             print()
             list_customers()
+            
+            
+
         elif choice2 == 2:
             print()
             add_customer()
@@ -70,13 +73,18 @@ def display_customer_menu():
 # required functions
 # func to list all customers
 def list_customers():
-     
-    customer = open("customer.txt", "r")
-    for c in customer:
-        cust = c.split(" ,")
-        print(cust)
+    customer_list = []
+    with open('customer.txt','r') as reader:
+        for line in reader.readlines():
+            CUSTOMERS.append(line)
+    # print(CUSTOMERS)
+    # remove \n
+    for cust in CUSTOMERS:
+        lists = cust.replace('\n','')
+        customer_list.append(lists)
+    print(customer_list)
     
-            
+           
 # function to add a customer
 # fields(customer_id(unique),customer_name,addess)
 def add_customer():
@@ -100,23 +108,31 @@ def add_customer():
     # id = input("Enter Customer id: ")
     name = input("Enter Customer name: ")
     address = input("Enter customer address: ")
-    output = Customer(id,name,address)
+    # output = Customer(id,name,address)
+    fo = open('customer.txt','a')
+    fo.write(str(id)   +','+   name+  ','  + address + '\n')
+    fo.close()
     # append to list
-    CUSTOMERS.append(output)
+    # CUSTOMERS.append(output)
     print("customer added successfully")
     handle_file()
+
     
 def handle_file():
-    for c in CUSTOMERS:
-        fo = open('customer.txt','a')
-        fo.write(str(c.id)   +','+   c.name+  ','  + c.address + '\n')
-        fo.close()
-        break
+    with open('customer.txt','r') as reader:
+        for line in reader.readlines():
+            CUSTOMERS.append(line)
+    print(CUSTOMERS)
+    # print(c.id,c.name,c.address)
 
 def update_customer():
     get_customer()
     # as for user input
     cus_id = input("Enter customer id to modify:  ")
+    for i in range(len(CUSTOMERS)-1):
+        if CUSTOMERS[i].id == cus_id:
+            print(CUSTOMERS[i])
+
 
     
 
