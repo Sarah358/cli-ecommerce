@@ -1,0 +1,6 @@
+1,sarah,juja
+2,john,kisumu
+3,jane,nairobi
+4,beth,mombasa
+
+6,test,test
