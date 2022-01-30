@@ -1,10 +1,24 @@
 import os
+PRODUCTS = []
+# product class
+class Product:
+    def __init__(self,id,name,amount,price) -> None:
+        self.id = id
+        self.name = name
+        self.amount = amount
+        self.price =price
 
 
+    def set_amount(self,amount):
+        self.amount = amount
+    
+    def get_amount(self):
+        return self.amount
+        
 # product menu
 
 def display_product_menu():
-    product_list = []
+
     
     # creating options  
     while True:
@@ -33,8 +47,7 @@ def display_product_menu():
             list_products()
         elif choice2 == 2:
             print()
-            product_list.append(add_product())
-            print (product_list)
+            add_product()
 
         elif choice2 == 3:
             print()
@@ -76,18 +89,25 @@ def add_product():
     #open the file in append mode (add to file, we don't wish to overwrite
     fo = open('product.txt','a+',newline='')
     product_id = input("Enter Product id : ")
+    # check for unique id
+    with open("product.txt",'r') as fo_r:
+        for line in fo_r.readlines():
+            if product_id in line:
+                print()
+                print("Product id already exists!!Please enter a unique id!!")
+                print()
+                return add_product()
     product_name = input("Enter Product name:  ")
-    amount = input("Enter product amount:   ")
-    price = input("Enter the product price:   ")
-
-    fo.write(product_id + '~ ' +  product_name  +  '~ '  +  amount + '~' +  price + "\n")
+    amount = int(input("Enter product amount:   "))
+    price = float(input("Enter the product price:   "))
+    fo.write(product_id + '~ ' +  product_name  +  '~ '  +  str(amount) + '~' +  str(price) + "\n")
     fo.close()
     if(fo):
         print("Product added successfully!!!")
     print()
     output = {"id": product_id, "name": product_name, "amount": amount, "price ": price}
     return output
-        
+   
 
 # function to edit customer with customer id
 def edit_product():
@@ -103,7 +123,7 @@ def edit_product():
                 name = input("Enter Product name: ")
                 amount = input("Enter product amount : ")
                 price = input("Enter the product price : ")
-                temp.write(str(id) + '~ ' +  name  +  '~ '  +  amount + '~' + price + "\n")
+                temp.write(str(id) + '~' +  name  +  '~'  +  amount + '~' + price + "\n")
             else:
                 temp.write(s)
     temp.close()
@@ -153,6 +173,18 @@ def search_product():
                 print("Product price: ",L[3])
 
 
+
+# load products
+def load_products():
+    product = open("product.txt","r")
+    for p in product:
+        prod = p.split('~')
+        id = prod[0]
+        name = prod[1]
+        amount = prod[2]
+        price = prod[3]
+        output = Product(id,name,amount,price)
+        PRODUCTS.append(output)
 
 if __name__ == "__main__":
     display_product_menu()

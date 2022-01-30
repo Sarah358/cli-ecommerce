@@ -1,5 +1,14 @@
 import os
 
+from customer1 import CUSTOMERS
+
+CUSTOMERS = []
+# customer class
+class Customer:
+    def __init__(self,id,name,address):
+        self.id = id
+        self.name = name
+        self.address = address
 
 # customer menu
 
@@ -35,6 +44,7 @@ def display_customer_menu():
             print()
             customer_list.append(add_customer())
             print (customer_list)
+            # add_customer()
 
         elif choice2 == 3:
             print()
@@ -69,6 +79,7 @@ def list_customers():
         lists = cust.replace('\n','')
         customers_list.append(lists)
     print(customers_list)
+    
     # customer = open("customer.txt", "r")
     # for c in customer:
     #     cust = c.split(" ,")
@@ -81,6 +92,15 @@ def add_customer():
     #open the file in append mode (add to file, we don't wish to overwrite
     fo = open('customer.txt','a+',newline='')
     customer_id = input("Enter Customer id : ")
+    # check for unique id 
+    with open("customer.txt",'r') as fo_r:
+        for line in fo_r.readlines():
+            if customer_id in line:
+                print()
+                print("Id already exists!!!Please enter a unique id !!!")
+                print()
+                return add_customer()
+    # user inputs
     customer_name = input("Enter Customer name:  ")
     address = input("Enter customer address:   ")
     fo.write(customer_id + '~ ' +  customer_name  +  '~ '  +  address + "\n")
@@ -152,6 +172,20 @@ def search_customer():
                 print("Customer id: ",L[0])
                 print("Customer Name: ",L[1])
                 print("Customer address: ",L[2])
+
+
+# load customers
+def load_customers():
+    file = open('customer.txt','r')
+    for c in file:
+        cust = c.split('~')
+        id = cust[0]
+        name = cust[1]
+        address = cust[2]
+        customer = Customer(id,name,address)
+        CUSTOMERS.append(customer)
+        # print(CUSTOMERS)
+
 
 
 if __name__ == "__main__":
