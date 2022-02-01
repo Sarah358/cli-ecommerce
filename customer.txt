@@ -1,2 +1,3 @@
-20~ sarah~ nairobi
-30~ jane~ nairobi
+20,sarah,juja
+12,jane,nairobi
+21,john,mombasa

@@ -1,7 +1,5 @@
 import os
 
-from customer1 import CUSTOMERS
-
 CUSTOMERS = []
 # customer class
 class Customer:
@@ -101,9 +99,9 @@ def add_customer():
                 print()
                 return add_customer()
     # user inputs
-    customer_name = input("Enter Customer name:  ")
+    customer_name = input("Enter Customer name:  ").lower()
     address = input("Enter customer address:   ")
-    fo.write(customer_id + '~ ' +  customer_name  +  '~ '  +  address + "\n")
+    fo.write(customer_id + ',' +  customer_name  +  ','  +  address + "\n")
     fo.close()
     if(fo):
         print("Customer added successfully!!!")
@@ -117,15 +115,15 @@ def edit_customer():
     file = open('customer.txt','r')
     temp = open('temp.txt','w')
     id = int(input("Enter customer id to change: "))
-    s = ' '
+    s = " "
     while(s):
         s = file.readline()
-        L = s.split('~')
+        L = s.split(",")
         if len(s)>0:
             if int(L[0]) == id:
-                name = input("Enter customer name: ")
+                name = input("Enter customer name: ").lower()
                 address = input("Enter the customer address: ")
-                temp.write(str(id) + '~ ' +  name  +  '~ '  +  address + "\n")
+                temp.write(str(id) + ',' +  name  +  ','  +  address + "\n")
             else:
                 temp.write(s)
     temp.close()
@@ -144,7 +142,7 @@ def delete_customer():
     s = ' '
     while(s):
         s = customer.readline()
-        L = s.split('~')
+        L = s.split(',')
         if len(s)>0:
             if int(L[0]) != id:
                 temp.write(s)
@@ -164,7 +162,7 @@ def search_customer():
     s = ' '
     while(s):
         s = customer.readline()
-        L = s.split("~")
+        L = s.split(",")
         if len(s)>0:
             if int(L[0]) == id:
                 print("Customer details")
@@ -172,13 +170,17 @@ def search_customer():
                 print("Customer id: ",L[0])
                 print("Customer Name: ",L[1])
                 print("Customer address: ",L[2])
+                # break
 
+            # else:
+            #     print("Customer not available!!")
+            #     break
 
 # load customers
 def load_customers():
     file = open('customer.txt','r')
     for c in file:
-        cust = c.split('~')
+        cust = c.split(',')
         id = cust[0]
         name = cust[1]
         address = cust[2]
