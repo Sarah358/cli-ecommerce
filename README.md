@@ -54,6 +54,10 @@ The ***product.py*** file handles product operations which are:
 - search product which allows users to search for a product from the text file using product id 
 - list products which displays all products from the text file
 
+### Product operations demo
+
+https://user-images.githubusercontent.com/60597568/152037186-ec3894a5-49d6-4f5b-8951-261164faac39.mp4
+
 ### 3. PURCHASES OPERATIONS
 The ***purchase.py*** file handles purchases operations which are:
 - purchases sub menu which allows users to select an operation to handle
@@ -61,7 +65,9 @@ The ***purchase.py*** file handles purchases operations which are:
 - Search purchase which allows users to search for purchases made using customer id or product id .
 - List purchases which lists all purchases made and total amount spent 
 
-## Project illustration
+### Purchases operations demo
+
+https://user-images.githubusercontent.com/60597568/152037467-e354a429-872b-4b82-bee6-2ed20bacaec4.mp4
 
 
 
