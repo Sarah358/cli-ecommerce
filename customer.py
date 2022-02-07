@@ -169,7 +169,7 @@ def search_customer():
                 print("------------------------------")
                 print("Customer id: ",L[0])
                 print("Customer Name: ",L[1])
-                print("Customer address: ",L[2])
+                print("Customer Address: ",L[2])
                 # break
 
             # else:
