@@ -7,7 +7,10 @@ PURCHASES = []
 # purchases class
 class Purchase:
 
-    def __init__(self,cus_name,pro_id,purchase_q,price_purchased) -> None:
+    def __init__(self,cus_name,pro_id,purchase_q,price_purchased):
+         # Run validations to the received arguments
+        assert purchase_q >=0, f"{purchase_q} is not greater or equal to zero!! "
+
         self.cus_name = cus_name
         self.pro_id = pro_id
         self.purchase_q = purchase_q
@@ -42,6 +45,7 @@ def display_purchase_menu():
         if choice4 == 1:
             print()
             make_purchase()
+            
         elif choice4 == 2:
             print()
             list_purchases()
@@ -102,21 +106,42 @@ def make_purchase():
                     print("Purchase successfull!!!")
                     print()
                     print(PURCHASES)
-                    checkout()
- 
+                    # update_products()
+                    while True:
+                        print ("""
+                        Choose purchase option:
+
+                        1. Make another purchase
+                        2. Checkout
+                        3.Exit
+                        """)
+                        choice7 = int(input("Choose a purchase option: "))
+                        if choice7 ==1:
+                            make_purchase()
+                        elif choice7 ==2:
+                            checkout()
+                            break
+                        elif choice7 ==3:
+                            print()
+                            break
+                        else:
+                            print("Invalid option!!!")
+                        
                 else:
                     print("Quantity in stock is below " +str(purchase_q) + ' : ' +"quantity available:"+str(quantity) )
                     make_purchase()
+                    break
   
     else:
         print("Invalid details!!!")
+        
         
 
 def handle_file():
     with open('purchase.txt','a')as fo:
         for p in PURCHASES:
             print(p.cus_name+','+p.pro_id+','+str(p.purchase_q)+','+str(p.price_purchased),file=fo)
-            break            
+            # break            
 
 def checkout():
     total_purchase = 0
@@ -124,7 +149,7 @@ def checkout():
         # pur = p.split(',')
         cost = float(p.price_purchased)
         total_purchase += cost
-
+    print()
     print("Total: "+ str(total_purchase))
     print("purchase complete")
     update_products()
@@ -158,7 +183,7 @@ def update_products():
         os.remove('product.txt')
         os.rename('temp.txt','product.txt')
         print("Inventory updated")
-        print("Stock remaining: " +str(updated_q))
+        print("Stock remaining for " +name + ':' +str(updated_q))
                     
 # function to list all purchases
 def list_purchases():
@@ -214,6 +239,7 @@ def search_purchase():
                         # print(cus_name ,pro_id,quantity,price)
             print('----------------')
             print("Total spent by " +cus_name + ' : ' + str(total))
+            break
                 
     
         elif choice5 ==2:

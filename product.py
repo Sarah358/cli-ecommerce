@@ -51,6 +51,8 @@ def list_products():
 def add_product():
     #open the file in append mode (add to file, we don't wish to overwrite
     fo = open('product.txt','a+',newline='')
+    
+    
     product_id = input("Enter Product id : ")
     # check for unique id
     with open("product.txt",'r') as fo_r:
@@ -62,7 +64,9 @@ def add_product():
                 return add_product()
     product_name = input("Enter Product name:  ")
     amount = int(input("Enter product amount:   "))
+    assert amount >=0, f"{amount} is not greater or equal to zero!! "
     price = float(input("Enter the product price:   "))
+    assert price >= 0, f"Price {price} is not greater or equal to zero!! "
     fo.write(product_id + ',' +  product_name  +  ','  +  str(amount) + ',' +  str(price) + "\n")
     fo.close()
     if(fo):
@@ -92,7 +96,9 @@ def edit_product():
             if L[0] == id:
                 name = input("Enter Product name: ")
                 amount = input("Enter product amount : ")
+                assert amount >=0, f"{amount} is not greater or equal to zero!! "
                 price = input("Enter the product price : ")
+                assert price >= 0, f"Price {price} is not greater or equal to zero!! "
                 temp.write(str(id) + ',' +  name  +  ','  +  amount + ',' + price + "\n")
             else:
                 temp.write(s)
