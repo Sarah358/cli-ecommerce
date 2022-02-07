@@ -41,12 +41,11 @@ The ***customer.py*** file describes customer operations which are:
 - search customer which allows users to search for a customer from the text file using customer id 
 - list customers which displays all customers from the text file 
 
-<<<<<<< HEAD
-=======
+
 ### Customer operations demo
 
 https://user-images.githubusercontent.com/60597568/151987669-631067cd-5b27-406b-8797-6f449662d4f8.mp4
->>>>>>> 99dcaf512ff880e8666dcf44019c2a7248ff2218
+
 
 ### 2. PRODUCT OPERATIONS
 The ***product.py*** file handles product operations which are:
