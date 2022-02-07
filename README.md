@@ -41,6 +41,12 @@ The ***customer.py*** file describes customer operations which are:
 - search customer which allows users to search for a customer from the text file using customer id 
 - list customers which displays all customers from the text file 
 
+<<<<<<< HEAD
+=======
+### Customer operations demo
+
+https://user-images.githubusercontent.com/60597568/151987669-631067cd-5b27-406b-8797-6f449662d4f8.mp4
+>>>>>>> 99dcaf512ff880e8666dcf44019c2a7248ff2218
 
 ### 2. PRODUCT OPERATIONS
 The ***product.py*** file handles product operations which are:
@@ -51,6 +57,10 @@ The ***product.py*** file handles product operations which are:
 - search product which allows users to search for a product from the text file using product id 
 - list products which displays all products from the text file
 
+### Product operations demo
+
+https://user-images.githubusercontent.com/60597568/152037186-ec3894a5-49d6-4f5b-8951-261164faac39.mp4
+
 ### 3. PURCHASES OPERATIONS
 The ***purchase.py*** file handles purchases operations which are:
 - purchases sub menu which allows users to select an operation to handle
@@ -58,7 +68,9 @@ The ***purchase.py*** file handles purchases operations which are:
 - Search purchase which allows users to search for purchases made using customer id or product id .
 - List purchases which lists all purchases made and total amount spent 
 
-## Project illustration
+### Purchases operations demo
+
+https://user-images.githubusercontent.com/60597568/152037467-e354a429-872b-4b82-bee6-2ed20bacaec4.mp4
 
 
 
